@@ -34,6 +34,10 @@ class Game {
     car3 = createSprite(500,200);
     car4 = createSprite(700,200);
     cars = [car1, car2, car3, car4];
+    car1.addImage("car",c)
+    car2.addImage("car1",c1)
+    car3.addImage("car2",c2)
+    car4.addImage("car3",c3)
   }
 
   play(){
@@ -48,10 +52,12 @@ class Game {
       var index = 0;
 
       //x and y position of the cars
-      var x = 0;
+      var x = 175;
       var y;
 
       for(var plr in allPlayers){
+        background("black")
+        image(track,0,-displayHeight*4,displayWidth,displayHeight*5)
         //add 1 to the index for every loop
         index = index + 1 ;
 
@@ -78,7 +84,16 @@ class Game {
       player.distance +=10
       player.update();
     }
-
+if (player.distance>3800){
+gameState=2;
+}
     drawSprites();
+  }
+  end(){
+console.log("gameend")
+
+
+
+
   }
 }
